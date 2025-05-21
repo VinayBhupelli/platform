@@ -12,8 +12,8 @@ func NewNotificationInterface() NotificationInterface {
 	v := "plugin2"
 	switch v {
 	case "plugin1":
-		return plugins.AmazonSES{}
+		return plugins.NewAmazonSES()
 	default:
-		return plugins.SendGrid{}
+		return plugins.NewSendGrid()
 	}
 }

@@ -13,12 +13,8 @@ func NewPaymentInterface(service2 notification.NotificationInterface) PaymentInt
 	v := "pluginB"
 	switch v {
 	case "pluginB":
-		return plugins.Stripe{
-			Service2: service2, // inject dependency
-		}
+		return plugins.NewStripe(service2)
 	default:
-		return plugins.Paypal{
-			Service2: service2, // inject dependency
-		}
+		return plugins.NewPaypal(service2)
 	}
 }
