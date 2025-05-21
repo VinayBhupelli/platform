@@ -1,14 +1,13 @@
-// platform/main.go
 package main
 
 import (
-	"platform/service1"
-	"platform/service2"
+	"platform/notification"
+	"platform/payment"
 )
 
 func main() {
-	service2Client := service2.NewService2Client()
-	service1Client := service1.NewService1Client(service2Client)
+	service2Client := notification.NewNotificationInterface()
+	service1Client := payment.NewPaymentInterface(service2Client)
 
-	service1Client.MethodA()
+	service1Client.MakePayment()
 }
