@@ -1,7 +1,7 @@
 package notification
 
 import (
-	"platform/notification/plugins"
+	"platform/plugins/notification"
 )
 
 type NotificationInterface interface {
@@ -12,8 +12,8 @@ func NewNotificationInterface() NotificationInterface {
 	v := "plugin2"
 	switch v {
 	case "plugin1":
-		return plugins.NewAmazonSES()
+		return notification.NewAmazonSES()
 	default:
-		return plugins.NewSendGrid()
+		return notification.NewSendGrid()
 	}
 }

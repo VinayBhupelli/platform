@@ -1,8 +1,8 @@
 package payment
 
 import (
-	"platform/notification"
-	"platform/payment/plugins"
+	"platform/interfaces/notification"
+	"platform/plugins/payment"
 )
 
 type PaymentInterface interface {
@@ -13,8 +13,8 @@ func NewPaymentInterface(service2 notification.NotificationInterface) PaymentInt
 	v := "pluginB"
 	switch v {
 	case "pluginB":
-		return plugins.NewStripe(service2)
+		return payment.NewStripe(service2)
 	default:
-		return plugins.NewPaypal(service2)
+		return payment.NewPaypal(service2)
 	}
 }

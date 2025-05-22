@@ -1,7 +1,7 @@
-package plugins
+package payment
 
 import (
-	"platform/notification"
+	"platform/interfaces/notification"
 )
 
 type Paypal struct {
